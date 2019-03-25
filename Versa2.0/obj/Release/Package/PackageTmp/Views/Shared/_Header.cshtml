@@ -1,0 +1,79 @@
+﻿<!--Header-->
+<header id="header" data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyStartAt': 125, 'stickySetTop': '-125px'}">
+    <div class="header-body">
+        <div class="header-container container">
+            <div class="header-row py-0">
+                <div class="header-column justify-content-start">
+                    <div class="header-logo">
+                        <a href="@Url.Action("Index", "Home")" title="Versa Consorcios">
+                            <img alt="Versa Consórcios" width="120" src="~/image/LogoVersa.png">
+                        </a>
+                    </div>
+                </div>
+                <div class="header-column justify-content-end">
+                    <span class="d-none d-md-flex align-items-center mr-4">
+                        <i class="icon-phone-2 text-3 text-color-primary mr-2"></i>
+                        <a href="tel:+551135018247">(11) 3501-8247 </a>
+                    </span>
+                    <span class="d-flex align-items-center mr-sm-4">
+                        <i class="fa fa-whatsapp  text-3 font-weight-bold text-color-primary mr-2"></i>
+                        <a href="https://wa.me/5511989190560" target="_blank">(11) 9.8919-0560</a>
+                    </span>
+                    <span class="d-none d-sm-flex align-items-center">
+                        <i class="icon-link-1 text-4 font-weight-bold text-color-primary mr-2"></i>
+                        <a href="mailto:contato@versaconsorcios.com.br">contato@versaconsorcios.com.br</a>
+                    </span>
+                </div>
+            </div> 
+            <div class="header-row">
+                <div class="header-column justify-content-start">
+                    <div class="header-nav header-nav-border-top justify-content-start">
+                        <div class="header-nav-main header-nav-main-uppercase header-nav-main-effect-1 header-nav-main-sub-effect-1">
+                            <nav class="collapse">
+                                <ul class="nav flex-column flex-lg-row" id="mainNav">
+                                    <li class="dropdown dropdown-mega">
+                                        @Html.ActionLink("Home", "Index", "Home", null, new { @class = "dropdown-item" })
+                                    </li>
+                                    <li class="dropdown dropdown-mega dropdown-mega-style-2">
+                                        @Html.ActionLink("Venda a sua cota", "Index", "VendaSuaCota", null, new { @class = "dropdown-item" })
+                                    </li>
+                                    <li class="dropdown">
+                                        @Html.ActionLink("Cotas à venda", "Index", "CotasVenda", null, new { @class = "dropdown-item" })
+                                    </li>
+                                    <li class="dropdown">
+                                        @Html.ActionLink("Quem Somos", "Index", "QuemSomos", null, new { @class = "dropdown-item" })
+                                    </li>
+                                    <li class="dropdown dropdown-mega dropdown-mega-style-2">
+                                        @Html.ActionLink("Contato", "Index", "Contato", null, new { @class = "dropdown-item" })
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-column justify-content-end">
+                    @*<div class="header-button d-none d-sm-flex ">
+                            <a href="#" class="btn btn-outline btn-rounded btn-primary btn-4 btn-icon-effect-1" target="_blank">
+                                <span class="wrap">
+                                    <i class="fa fa-shopping-cart mr-1"></i>
+                                    <span>BUY ME</span>
+                                </span>
+                            </a>
+                        </div>*@
+                    <button class="header-btn-collapse-nav ml-3" data-toggle="collapse" data-target=".header-nav-main nav">
+                        <span class="hamburguer">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                        <span class="close">
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!--End Header-->

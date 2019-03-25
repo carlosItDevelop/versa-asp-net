@@ -1,0 +1,4 @@
+<!-- Event snippet for Contato conversion page -->
+<script>
+  gtag('event', 'conversion', {'send_to': 'AW-766020137/VOLfCLyY-5QBEKmUou0C'});
+</script>

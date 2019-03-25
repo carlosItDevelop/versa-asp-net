@@ -1,0 +1,159 @@
+﻿@model  Versa2._0.Models.EnviarEmail
+
+<section class="page-header page-header-mini py-3">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-8 text-left">
+                <h1>Cotas à Venda</h1>
+            </div>
+            <div class="col-md-4">
+                <ul class="breadcrumb justify-content-start justify-content-md-end mb-0">
+                    <li>
+                        <a href="@Url.Action("Index", "Home")" title="Página Principal">
+                            Home
+                        </a>
+                    </li>
+                    <li class="active">Cotas à venda</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="v-page-wrap no-top-spacing">
+
+
+    <div class="v-spacer col-sm-12 v-height-small"></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9">
+                <div class="v-comment-form">
+
+
+                    <p class="fs-18 fw-300">
+                        Preencha o formulário abaixo que rapidamente entraremos em contato para iniciarmos a negociação da cota escolhida.
+                    </p>
+                    @using (Html.BeginForm("Details", "CotasVenda", FormMethod.Post, new { id = "CotasAVenda" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        @Html.HiddenFor(model => model.Credito)
+                        @Html.HiddenFor(model => model.TotalParcelas)
+                        @*@Html.HiddenFor(model => model.NumParcela)
+                        @Html.HiddenFor(model => model.Valor)*@
+                        @Html.HiddenFor(model => model.Administradora)
+                        @Html.HiddenFor(model => model.TipoConsorcio)
+                        @Html.HiddenFor(model => model.Grupo)
+                        @Html.HiddenFor(model => model.Cota)
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Nome <span class="required">*</span></label>
+                                    @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>E-Mail <span class="required">*</span></label>
+                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Telefone</label>
+                                    @Html.EditorFor(model => model.Telefone, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Telefone, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Celular <span class="required">*</span></label>
+                                    @Html.EditorFor(model => model.Celular, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Celular, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <button name="submit" type="submit" id="Button1" class="btn v-btn v-btn-default v-small-button"><i class="fa fa-magic"></i> Enviar</button>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+            <div class="col-sm-3">
+
+                <div class="v-heading-v2">
+                    <h3>Dados da Cota Selecionada</h3>
+                </div>
+
+                <p align="justify">
+                    <i class="fa fa-check"></i>
+                    <span>
+                        @Html.DisplayNameFor(model => model.Credito) :
+                        @Html.DisplayFor(model => model.Credito)
+                    </span>
+                </p>
+
+                <p>
+                    <i class="fa fa-check"></i>
+                    <span>
+                        @Html.DisplayNameFor(model => model.ValorDaParcela) :
+                        @Html.DisplayFor(model => model.ValorDaParcela)
+                    </span>
+                </p>
+
+
+                <p>
+                    <i class="fa fa-check"></i>
+                    <span>
+                        @Html.DisplayNameFor(model => model.TotalParcelas) :
+                        @Html.DisplayFor(model => model.TotalParcelas)
+                    </span>
+                </p>
+
+                <p>
+                    <i class="fa fa-check"></i>
+                    <span>
+                        @Html.DisplayNameFor(model => model.Entrada) :
+                        @Html.DisplayFor(model => model.Entrada)
+                    </span>
+                </p>
+
+                <p>
+                    <i class="fa fa-check"></i>
+                    <span>
+                        @Html.DisplayNameFor(model => model.Administradora) :
+                        @Html.DisplayFor(model => model.Administradora)
+                    </span>
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    <script src="~/Template/js/jquery.mask.min.js"></script>
+    <script src="~/Template/js/jquery.maskMoney.min.js"></script>
+    <script src="~/Template/js/jquery.validate.min.js"></script>
+    <script src="~/Template/js/jquery.validate.unobtrusive.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#ValorDoBem").maskMoney({ prefix: 'R$ ' });
+            $("#ValorDaParcela").maskMoney({ prefix: 'R$ ' });
+            $("#Credito").maskMoney({ prefix: 'R$ ' });
+            $('#TotalParcelas').mask('000');
+            $('#ParcelasPagas').mask('000');
+            $('#ParcelasEmAtraso').mask('000');
+            $('#Telefone').mask('(00) 0000-00009')
+            $('#Celular').mask('(00) 00000-0000')
+        });
+    </script>
+}

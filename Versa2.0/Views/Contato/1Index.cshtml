@@ -1,0 +1,160 @@
+﻿
+<section class="page-header page-header-mini py-3">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-8 text-left">
+                <h1>Contato</h1>
+            </div>
+            <div class="col-md-4">
+                <ul class="breadcrumb justify-content-start justify-content-md-end mb-0">
+                    <li>
+                        <a href="@Url.Action("Index", "Home")" title="Página Principal">
+                            Home
+                        </a>
+                    </li>
+                    <li class="active">Contato</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="v-page-wrap no-top-spacing no-bottom-spacing">
+
+    <div class="v-bg-stylish pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    @*<div id="google" style="height:900px" class="google-map mt-none mb-none"></div>*@
+                    <section id="google-map" class="gmap" style="height: 600px;"></section>
+                </div>
+                <div class="col-md-6">
+                    <div class="clearfix pl-4 pt-8">
+                        <h6 class="mb-5 o-7">Entre em Contato Conosco</h6>
+                        <h3 class="fs-20 mb-5" align="justify">
+                            Envie suas dúvidas e mensagens para nossos especialistas em Consórcio. Temos o prazer de te atender.
+                        </h3>
+                        <div class="col-sm-12">
+                            <ul class="v-list">
+                                <li>
+                                    <i class="fa fa-building"></i>
+                                    <span>Versa Consórcios</span>
+                                </li>
+                                <li>
+                                    <i class="fa fa-map-marker"></i>
+                                    <span>Rua Dr. Luiz Migliano, 1986 </span>
+                                    <i class="fa "></i>
+                                    <span>São Paulo - SP</span>
+                                </li>
+                                <li>
+                                    <i class="fa fa-phone"></i>
+                                    <span>(11) 3501-8247</span>
+                                </li>
+                                <li>
+                                    <i class="fa fa-whatsapp"></i>
+                                    <span>(11) 9.8919-0560</span>
+                                </li>
+                                <li>
+                                    <i class="fa fa-envelope-o"></i>
+                                    <span>contato@versaconsorcios.com.br</span>
+                                </li>
+                                <li>
+                                    <i class="fa fa-link"></i>
+                                    <span>http://versaconsorcios.com.br</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <a href="#" data-toggle="modal" data-target="#EnviarEmailModal" class="btn v-btn v-btn-default button-3d nomargin btn-block btn-lg hidden-xs center">Clique aqui para enviar um e-mail</a>
+                                @*<button name="submit" type="submit" id="Button1" class="btn v-btn v-btn-default v-small-button"><i class="fa fa-magic"></i> Clique aqui para enviar um e-mail</button>*@
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="EnviarEmailModal" tabindex="-1" role="dialog" aria-labelledby="enviarEmailModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header btn-primary">
+                <h5 class="modal-title" id="enviarEmailModalLabel">Envie-nos um e-mail</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <form class="special-contact-form">
+
+                    <div class="form-group">
+                        <input type="text" class="form-control w-100" name="special-contact-name" placeholder="Nome" />
+                        <input type="email" class="form-control w-100" name="special-contact-email" placeholder="E-mail" />
+                        <input type="text" class="form-control w-100" name="special-contact-telefone" placeholder="Telefone" />
+                        <input type="tel" class="form-control w-100" name="special-contact-celular" placeholder="Celular" />
+                        <textarea class="form-control w-100" rows="3" name="message" placeholder="Sua Mensagem..."></textarea>
+                    </div>
+
+
+                    <a class="btn v-btn standard white sf-icon-stroke" href="#" target="_self">
+                        <i class="icon-layers"></i><span class="text">Enviar</span>
+                    </a>
+                    <a class="btn v-btn standard white sf-icon-stroke" data-dismiss="modal" >
+                        <i class="si-icon-folder-close"></i><span class="text">Sair</span>
+                    </a>
+                </form>
+            </div>
+            @*<div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+        </div>*@
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="~/Template/js/jquery.gmap.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIy24644w-ZBEOCfMfzYPYeULbuKJg_rs"></script>
+    <script type="text/javascript">
+        // Full Width
+        $("#google-map").gMap({
+            controls: {
+                draggable: (($.browser.mobile) ? false : true),
+                panControl: true,
+                zoomControl: true,
+                mapTypeControl: true,
+                scaleControl: true,
+                streetViewControl: true,
+                overviewMapControl: true
+            },
+            scrollwheel: true,
+            latitude: -23.62156,
+            longitude: -46.74200,
+            zoom: 16,
+            markers: [
+                {
+                    latitude: -23.62156,
+                    longitude: -46.74200,
+                    html: "Escritório da Versa Consórcios"
+                }
+            ]
+        });
+
+
+        jQuery(document).ready(function ($) {
+            jQuery('.minimize-section').click(function (e) {
+                e.preventDefault();
+                jQuery('.map-info-section').toggleClass('minimized');
+            });
+        });
+    </script>
+
+}

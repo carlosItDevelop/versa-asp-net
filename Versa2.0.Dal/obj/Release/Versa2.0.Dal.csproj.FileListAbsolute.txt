@@ -1,0 +1,15 @@
+D:\Projetos Sync\Versa2.0\Versa2.0.Dal\bin\Release\Versa2.0.Dal.dll
+D:\Projetos Sync\Versa2.0\Versa2.0.Dal\bin\Release\Versa2.0.Dal.pdb
+D:\Projetos Sync\Versa2.0\Versa2.0.Dal\bin\Release\EntitySpaces.Core.dll
+D:\Projetos Sync\Versa2.0\Versa2.0.Dal\bin\Release\EntitySpaces.DynamicQuery.dll
+D:\Projetos Sync\Versa2.0\Versa2.0.Dal\bin\Release\EntitySpaces.Interfaces.dll
+D:\Projetos Sync\Versa2.0\Versa2.0.Dal\bin\Release\EntitySpaces.Loader.dll
+D:\Projetos Sync\Versa2.0\Versa2.0.Dal\bin\Release\EntitySpaces.MySqlClientProvider.dll
+D:\Projetos Sync\Versa2.0\Versa2.0.Dal\bin\Release\EntitySpaces.SqlClientProvider.dll
+D:\Projetos Sync\Versa2.0\Versa2.0.Dal\bin\Release\EntitySpaces.Web.Design.dll
+D:\Projetos Sync\Versa2.0\Versa2.0.Dal\bin\Release\EntitySpaces.Web.dll
+D:\Projetos Sync\Versa2.0\Versa2.0.Dal\obj\Release\Versa2.0.Dal.csprojAssemblyReference.cache
+D:\Projetos Sync\Versa2.0\Versa2.0.Dal\obj\Release\Versa2.0.Dal.csproj.CoreCompileInputs.cache
+D:\Projetos Sync\Versa2.0\Versa2.0.Dal\obj\Release\Versa2.0.Dal.csproj.CopyComplete
+D:\Projetos Sync\Versa2.0\Versa2.0.Dal\obj\Release\Versa2.0.Dal.dll
+D:\Projetos Sync\Versa2.0\Versa2.0.Dal\obj\Release\Versa2.0.Dal.pdb

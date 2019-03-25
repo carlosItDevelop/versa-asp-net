@@ -1,0 +1,84 @@
+﻿table.blueTable {
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid #1C6EA4;
+    background-color: #EEEEEE;
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+    table.blueTable td, table.blueTable th {
+        border: 1px solid #AAAAAA;
+        padding: 3px 2px;
+    }
+
+    table.blueTable tbody td {
+        font-size: 13px;
+    }
+
+    table.blueTable tr:nth-child(even) {
+        background: #D0E4F5;
+    }
+
+    table.blueTable thead {
+        background: #F2F2F2;
+        background: -moz-linear-gradient(top, #f5f5f5 0%, #f3f3f3 66%, #F2F2F2 100%);
+        background: -webkit-linear-gradient(top, #f5f5f5 0%, #f3f3f3 66%, #F2F2F2 100%);
+        background: linear-gradient(to bottom, #f5f5f5 0%, #f3f3f3 66%, #F2F2F2 100%);
+        border-bottom: 2px solid #444444;
+    }
+
+        table.blueTable thead th {
+            font-size: 15px;
+            font-weight: bold;
+            color: #000000;
+        }
+
+    table.blueTable tfoot td {
+        font-size: 14px;
+    }
+
+    table.blueTable tfoot .links {
+        text-align: right;
+    }
+
+        table.blueTable tfoot .links a {
+            display: inline-block;
+            background: #1C6EA4;
+            color: #FFFFFF;
+            padding: 2px 8px;
+            border-radius: 5px;
+        }
+
+.myButton {
+    -webkit-border-radius: 18px;
+    -moz-border-radius: 18px;
+    border-radius: 18px;
+    -webkit-box-shadow: 0px 1px 3px #000000;
+    -moz-box-shadow: 0px 1px 3px #000000;
+    box-shadow: 0px 1px 3px #000000;
+    color: inherit;
+    color: white !important;
+    background: #418A79;
+    padding: 5px 20px 5px 20px;
+    text-decoration: none;
+}
+
+    .myButton:hover {
+        background: #ffffff;
+        color: black !important;
+        text-decoration: none;
+    }
+
+.alinha_a_direita {
+    text-align: right;
+}
+
+.alinha_ao_centro {
+    text-align: center;
+}
+
+h2 {
+    font-size: 22px;
+    line-height: 34px;
+}

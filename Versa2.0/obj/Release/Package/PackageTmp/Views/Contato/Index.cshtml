@@ -1,0 +1,212 @@
+﻿@model Versa2._0.Models.EnviarEmail
+<section class="page-header page-header-mini py-3">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-8 text-left">
+                <h1>Contato</h1>
+            </div>
+            <div class="col-md-4">
+                <ul class="breadcrumb justify-content-start justify-content-md-end mb-0">
+                    <li>
+                        <a href="@Url.Action("Index", "Home")" title="Página Principal">
+                            Home
+                        </a>
+                    </li>
+                    <li class="active">Contato</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section styles
+{
+    <style>
+
+        .custom-file-input:lang(en) ~ .custom-file-label::after {
+            content: "Selecionar";
+        }
+
+        .custom-file-input:lang(pt) ~ .custom-file-label::after {
+            content: "Selecionar";
+        }
+    </style>
+}
+
+<div class="v-page-wrap no-top-spacing no-bottom-spacing">
+
+    <div class="v-bg-stylish-erro pb-0">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <section id="google-map" class="gmap" style="        height: 600px;"></section>
+                </div>
+                <div class="col-md-6">
+                    <div class="clearfix pl-4 pt-8">
+                        <h6 class="mb-5 o-7">
+                            Caso tenha qualquer dúvida, ligue ou nos envie uma mensagem.<br />
+                            Teremos muito prazer em atendê-lo(a).
+                        </h6>
+
+                        <div class="col-sm-12">
+                            <ul class="v-list">
+                                <li>
+                                    <i class="fa fa-map-marker"></i>
+                                    @*<span>Rua Dr. Luiz Migliano, 1986 - </span>
+                                        <span>São Paulo - SP - CEP: 05711-001</span>*@
+
+                                    <span>
+                                        <a href="http://maps.google.com/?q=1200 Rua Dr. Luiz Migliano, 1986 - São Paulo - SP - CEP: 05711-001" target="_blank">Rua Dr. Luiz Migliano, 1986 - São Paulo - SP - CEP: 05711-001</a>
+                                    </span>
+                                </li>
+                                <li>
+                                    <i class="fa fa-phone"></i>
+                                    <span><a href="tel:+551135018247">(11) 3501-8247 </a></span>
+                 
+                                </li>
+                                <li>
+                                    <i class="fa fa-whatsapp"></i>
+                                    @*<span>(11) 9.8919-0560</span>*@
+                                    <span>  <a href="https://wa.me/5511989190560" target="_blank">(11) 9.8919-0560</a></span>
+                                </li>
+                                <li>
+                                    <i class="fa fa-envelope-o"></i>
+                                    @*<span>contato@versaconsorcios.com.br</span>*@
+                                    <span><a href="mailto:contato@versaconsorcios.com.br" class="text-lowercase">contato@versaconsorcios.com.br</a> </span>
+                                </li>
+                            </ul>
+                            @using (Html.BeginForm("Index", "Contato", FormMethod.Post, new { id = "Contato", enctype = "multipart/form-data" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" id="TotalParcelas" name="TotalParcelas" value="1">
+                                <input type="hidden" id="Administradora" name="Administradora" value="Administradora">
+                                <div class="form-group">
+
+
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label>Nome <span class="required">*</span></label>
+                                            @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label>E-Mail<span class="required">*</span></label>
+                                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label>Celular </label>
+                                            @Html.EditorFor(model => model.Celular, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Celular, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <label>Informações Adicionais <span class="required">*</span></label>
+                                            <textarea maxlength="5000" rows="10" class="form-control" id="Adicionais" name="Adicionais"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @*<div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="customFileLang" lang="es">
+                                        <label class="custom-file-label" for="customFileLang">Selecionar Arquivo</label>
+                                    </div>*@
+                                <div class="custom-file">
+                                    @*<input type="file" class="custom-file-input" id="customFile">*@
+                                    @Html.TextBoxFor(model => model.Attachment, new { @class = "custom-file-input", @type = "file" })
+                                    <label class="custom-file-label" for="customFile">Nenhum Arquivo a enviar</label>
+                                    @Html.ValidationMessageFor(model => model.Attachment, "", new { @class = "text-danger" })
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <button name="submit" type="submit" id="Button1" class="btn v-btn v-btn-default v-small-button"><i class="fa fa-magic"></i> Enviar Mensagem</button>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        @*<div class="row">
+                                <div class="col-sm-12">
+                                    <a href="#" data-toggle="modal" data-target="#EnviarEmailModal" class="btn v-btn v-btn-default button-3d nomargin btn-block btn-lg hidden-xs center">Clique aqui para enviar um e-mail</a>
+                                </div>
+                            </div>*@
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="~/Template/js/jquery.gmap.js"></script>
+    <script src="~/Template/js/jquery.mask.min.js"></script>
+    <script src="~/Template/js/jquery.maskMoney.min.js"></script>
+    <script src="~/Template/js/jquery.validate.min.js"></script>
+    <script src="~/Template/js/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Template/js/custom-validators.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIy24644w-ZBEOCfMfzYPYeULbuKJg_rs"></script>
+    <script type="text/javascript">
+        // Full Width
+        $("#google-map").gMap({
+            controls: {
+                draggable: (($.browser.mobile) ? false : true),
+                panControl: true,
+                zoomControl: true,
+                mapTypeControl: true,
+                scaleControl: true,
+                streetViewControl: true,
+                overviewMapControl: true
+            },
+            scrollwheel: true,
+            latitude: -23.62156,
+            longitude: -46.74200,
+            zoom: 16,
+            markers: [
+                {
+                    latitude: -23.62156,
+                    longitude: -46.74200,
+                    html: "Escritório da Versa Consórcios"
+                }
+            ]
+        });
+
+
+        jQuery(document).ready(function ($) {
+            jQuery('.minimize-section').click(function (e) {
+                e.preventDefault();
+                jQuery('.map-info-section').toggleClass('minimized');
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#Telefone').mask('(00) 0000-00009')
+            $('#Celular').mask('(00) 00000-0000')
+            $(":file").filestyle({ icon: false });
+        });
+
+    </script>
+
+    <script>
+        // Add the following code if you want the name of the file appear on select
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+
+
+
+    </script>
+
+}

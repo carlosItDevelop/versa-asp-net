@@ -1,0 +1,56 @@
+﻿
+<section class="page-header page-header-mini py-3">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-8 text-left">
+                <h1>E-Mail Recebido</h1>
+            </div>
+            <div class="col-md-4">
+                <ul class="breadcrumb justify-content-start justify-content-md-end mb-0">
+                    <li>
+                        <a href="@Url.Action("Index", "Home")" title="Página Principal">
+                            Home
+                        </a>
+                    </li>
+                    <li class="active">E-Mail Recebido</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="v-parallax v-bg-stylish v-bg-stylish-v6 clearfix">
+    <div class="container">
+        <div class="row center">
+            <div class="col-sm-12">
+                <p class="v-smash-text-large white-color">
+                    <span>RECEBEMOS SEU E-MAIL</span>
+                </p>
+
+                <div class="horizontal-break"></div>
+                <br />
+            </div>
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+
+                <img class="alignnone size-full" src="~/image/emailenviado.fw.png" width="150" />
+
+                <p class="text-white o-7" align="justify" >
+                    @ViewBag.TipoMensagem
+                </p>
+            </div>
+            <div class="col-sm-4"></div>
+
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+
+    <!-- Event snippet for Contato conversion page -->
+    <script>
+        gtag('event', 'conversion', { 'send_to': 'AW-766020137/VOLfCLyY-5QBEKmUou0C' });
+    </script>
+}
+

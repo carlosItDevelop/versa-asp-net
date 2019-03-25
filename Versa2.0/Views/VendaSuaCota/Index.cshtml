@@ -1,0 +1,291 @@
+﻿@model  Versa2._0.Models.EnviarEmail
+
+<section class="page-header page-header-mini py-3">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-8 text-left">
+                <h1>Venda a Sua Cota ainda hoje e receba à vista!</h1>
+            </div>
+            <div class="col-md-4">
+                <ul class="breadcrumb justify-content-start justify-content-md-end mb-0">
+                    <li>
+                        <a href="@Url.Action("Index", "Home")" title="Página Principal">
+                            Home
+                        </a>
+                    </li>
+                    <li class="active">Venda a sua cota</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="v-page-wrap no-top-spacing">
+
+
+    <div class="v-spacer col-sm-12 v-height-small"></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9">
+                <div class="v-comment-form">
+
+                    <div class="v-heading-v2">
+                        <h3>COMPRAMOS A SUA COTA</h3>
+                    </div>
+
+                    <p class="pull-bottom-small">
+                        Compramos a sua cota de consórcio seja ela contemplada ou não, cancelada,
+                        excluída ou mesmo em atraso. Pagamos à vista (TED na sua conta) com total transparência, rapidez e segurança.
+                    </p>
+
+                    <p class="fs-18 fw-300">
+                        PREENCHA O FORMULÁRIO ABAIXO PARA QUE POSSAMOS AVALIAR A SUA CARTA DE CRÉDITO
+                    </p>
+                    @using (Html.BeginForm("Index", "VendaSuaCota", FormMethod.Post, new { id = "VendaSuaCota", enctype = "multipart/form-data"  }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Nome <span class="required">*</span></label>
+                                    @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>E-Mail <span class="required">*</span></label>
+                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Telefone</label>
+                                    @Html.EditorFor(model => model.Telefone, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Telefone, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-sm-6">
+
+                                    <label>Celular </label> <span class="required">*</span>
+                                    @Html.EditorFor(model => model.Celular, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Celular, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Administradora </label><span class="required">*</span>
+                                    @Html.EditorFor(model => model.Administradora, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Administradora, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="inputState">Tipo Consórcios</label>
+                                    <select id="TipoConsorcio" name="TipoConsorcio" class="form-control">
+                                        <option value="Imovel" selected>
+                                            Imóvel
+                                        </option>
+                                        <option value="Automovel">
+                                            Automóvel
+                                        </option>
+                                        <option value="Caminhao">
+                                            Caminhão
+                                        </option>
+                                        <option value="Moto">
+                                            Moto
+                                        </option>
+                                        <option value="Outro">
+                                            Outros
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label>Grupo </label>
+                                    @Html.EditorFor(model => model.Grupo, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Grupo, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-sm-4">
+                                    <label>Cota </label>
+                                    @Html.EditorFor(model => model.Cota, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Cota, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-sm-4">
+                                    <label for="inputState">Contemplado </label>
+                                    <select id="Contemplado" name="Contemplado" class="form-control">
+                                        <option value="Sim" selected>
+                                            Sim
+                                        </option>
+                                        <option value="N&atilde;o">
+                                            N&atilde;o
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label>Total de Parcelas</label>
+                                    @Html.EditorFor(model => model.TotalParcelas, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.TotalParcelas, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-sm-4">
+                                    <label>Parcelas Pagas </label>
+                                    @Html.EditorFor(model => model.ParcelasPagas, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.ParcelasPagas, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-sm-4">
+                                    <label>Parcelas em Atraso </label>
+                                    @Html.EditorFor(model => model.ParcelasEmAtraso, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.ParcelasEmAtraso, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label>Valor do Bem R$</label>
+                                    @Html.EditorFor(model => model.ValorDoBem, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.ValorDoBem, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-sm-4">
+                                    <label>Valor da Parcela R$ </label>
+                                    @Html.EditorFor(model => model.ValorDaParcela, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.ValorDaParcela, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-sm-4">
+                                    <label>Valor do Saldo Devedor R$ </label>
+                                    @Html.EditorFor(model => model.SaldoDevedor, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.SaldoDevedor, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                        @*<div class="clearfix pb-8">
+                <div class="v-heading-v2">
+                    <h3>Anexar Extrato do Consórcio</h3>
+                </div>
+
+
+                <div class="custom-file">
+
+                    <input type="file" class="custom-file-input" id="customFile">
+                    <label class="custom-file-label" for="customFile">Selecione o Documento</label>
+                </div>
+
+            </div>*@
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label>Informações Adicionais </label>
+                                    <textarea maxlength="5000" rows="10" class="form-control" id="Adicionais" name="Adicionais"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="custom-file">
+                            <label>Anexo </label>
+                            @Html.TextBoxFor(model => model.Attachment, new { @class = "custom-file-input", @type = "file" })
+                            <label class="custom-file-label" for="customFile">Nenhum Arquivo a enviar</label>
+                            @Html.ValidationMessageFor(model => model.Attachment, "", new { @class = "text-danger" })
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <button name="submit" type="submit" id="Button1" class="btn v-btn v-btn-default v-small-button"><i class="fa fa-magic"></i> Enviar</button>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+            <div class="col-sm-3">
+
+                <div class="v-heading-v2">
+                    <h3>Porque confiar na Versa?</h3>
+                </div>
+
+                <p align="justify">
+                    Somos especialistas no que fazemos e há quase 20 anos oferecemos os melhores negócios aos nossos clientes.
+                </p>
+
+                <p>
+                    <i class="fa fa-check"></i>
+                    Agilidade na avaliação, negociação rápida e pagamento imediato.
+                </p>
+
+
+                <p>
+                    <i class="fa fa-check"></i>
+                    Transparência absoluta durante todo o processo de compra e venda.
+                </p>
+
+                @*<p>
+                        <i class="fa fa-check"></i>
+                        Qualidade atestada e comprovada pelos nossos clientes.
+                    </p>*@
+
+                <p>
+                    <i class="fa fa-check"></i>
+                    Segurança e sigilo absoluto dos seus dados e da negociação.
+                </p>
+
+                <p>
+                    <i class="fa fa-check"></i>
+                    Pagamento de cotas à vista, no ato, na sua conta corrente.
+                </p>
+
+                <p>
+                    <i class="fa fa-check"></i>
+                    Experiência, suporte, tradição e honestidade.
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    <script src="~/Template/js/jquery.mask.min.js"></script>
+    <script src="~/Template/js/jquery.maskMoney.min.js"></script>
+    <script src="~/Template/js/jquery.validate.min.js"></script>
+    <script src="~/Template/js/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Template/js/custom-validators.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#ValorDoBem").maskMoney({ prefix: 'R$ ' });
+            $("#ValorDaParcela").maskMoney({ prefix: 'R$ ' });
+            $("#SaldoDevedor").maskMoney({ prefix: 'R$ ' });
+            $('#TotalParcelas').mask('000');
+            $('#ParcelasPagas').mask('000');
+            $('#ParcelasEmAtraso').mask('000');
+            $('#Telefone').mask('(00) 0000-00009');
+            $('#Celular').mask('(00) 00000-0000');
+            $(":file").filestyle({ icon: false });
+        });
+    </script>
+
+
+    <script>
+        // Add the following code if you want the name of the file appear on select
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
+}
