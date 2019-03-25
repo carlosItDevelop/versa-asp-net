@@ -7,7 +7,7 @@
 
 ```
 ### ApplicationUserManager
-```C#
+```CSharp
 using Cooperchip.Common.Identity.Context;
 using Cooperchip.Common.Identity.Model;
 using Microsoft.AspNet.Identity;
