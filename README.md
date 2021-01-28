@@ -1,5 +1,5 @@
 # Projeto Versa
-## Versao 2.0
+## Versao 2.0 - Importei do bitbucket
 ### Lista de tarefas pendentes e release do aplicativo
 ```
  
